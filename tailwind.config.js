@@ -200,15 +200,15 @@ export default {
         },
       },
       animation: {
-        slideDownAndFade:
+        'slide-down-and-fade':
           'slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
-        slideLeftAndFade:
+        'slide-left-and-fade':
           'slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
-        slideUpAndFade: 'slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
-        slideRightAndFade:
+        'slide-up-and-fade': 'slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        'slide-right-and-fade':
           'slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
-        overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-        contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        'overlay-show': 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        'content-show': 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
       },
       fontFamily: {
         sans: ['DM Sans', 'sans-serif'],
