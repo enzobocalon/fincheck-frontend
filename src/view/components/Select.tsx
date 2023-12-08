@@ -5,19 +5,22 @@ import { useState } from 'react';
 
 interface SelectProps {
   className?: string,
-  error?: boolean,
+  error?: string,
   placeholder?: string,
   options: {
     value: string;
     label: string;
-  }[]
+  }[],
+  value?: string;
+  onChange?(value: string): void;
 }
 
-export default function Select({ placeholder, error, className, options }: SelectProps) {
-  const [selectedValue, setSelectedValue] = useState('');
+export default function Select({ placeholder, error, className, options, value, onChange }: SelectProps) {
+  const [selectedValue, setSelectedValue] = useState(value ?? '');
 
   function handleSelect(value: string) {
     setSelectedValue(value);
+    onChange?.(value);
   }
 
   return (
@@ -27,7 +30,7 @@ export default function Select({ placeholder, error, className, options }: Selec
           selectedValue && 'text-xs left-[13px] top-2 translate-y-0 transition-all')}>
           {placeholder}
         </label>
-        <RdxSelect.Root onValueChange={handleSelect}>
+        <RdxSelect.Root onValueChange={handleSelect} value={value}>
           <RdxSelect.Trigger
             className={cn("bg-white w-full rounded-lg border border-gray-500 px-3 h-[52px] text-gray-800 focus:border-gray-800 transition-all outline-none text-left relative pt-4",
               error && '!border-red-900',
@@ -41,7 +44,7 @@ export default function Select({ placeholder, error, className, options }: Selec
             </RdxSelect.Icon>
           </RdxSelect.Trigger>
           <RdxSelect.Portal>
-            <RdxSelect.Content className=" z-[9999] outline-none overflow-hidden bg-white rounded-2xl border border-gray-100 shadow-[0px_11px_20px_0px_rgba(0,0,0,0.10)]">
+            <RdxSelect.Content className=" z-[100] outline-none overflow-hidden bg-white rounded-2xl border border-gray-100 shadow-[0px_11px_20px_0px_rgba(0,0,0,0.10)]">
               <RdxSelect.ScrollUpButton className="flex items-center justify-center h-[25px] bg-white text-gray-800 cursor-default">
                 <ChevronUpIcon />
               </RdxSelect.ScrollUpButton>

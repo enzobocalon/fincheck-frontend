@@ -6,7 +6,9 @@ import { useState } from "react";
 
 interface ColorsDropdownInputProps {
   className?: string,
-  error?: boolean
+  error?: string
+  onChange?(value: string): void;
+  value?: string
 }
 
 type Color = {
@@ -31,11 +33,16 @@ const colors: Color[] = [
   { color: '#212529', bg: '#F8F9FA' },
 ];
 
-export default function ColorsDropdownInput({ className, error }: ColorsDropdownInputProps) {
-  const [selectedColor, setSelectedColor] = useState<Color | null>(null);
+export default function ColorsDropdownInput({ className, error, value, onChange }: ColorsDropdownInputProps) {
+  const [selectedColor, setSelectedColor] = useState<Color | null>(() => {
+    if (!value) return null;
+
+    return colors.find(color => color.color === value) ?? null;
+  });
 
   function handleSelect(color: Color) {
     setSelectedColor(color)
+    onChange?.(color.color)
   }
   return (
     <div>
@@ -59,7 +66,7 @@ export default function ColorsDropdownInput({ className, error }: ColorsDropdown
           </button>
         </DropdownMenu.Trigger>
 
-        <DropdownMenu.Content className="z-[99999] grid grid-cols-4">
+        <DropdownMenu.Content className="z-[100] grid grid-cols-4">
           {
             colors.map(color => (
               <DropdownMenu.Item key={color.color} onSelect={() => handleSelect(color)}>

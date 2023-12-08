@@ -1,4 +1,4 @@
-import { HttpClient } from "../HttpClient";
+import { HttpClient } from "../httpClient";
 
 export interface SigninParams {
   email: string;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
+import Button from "../../components/Button";
 import useRegisterController from "./useRegisterController";
 
 export default function Register() {

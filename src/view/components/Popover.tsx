@@ -19,7 +19,7 @@ function PopoverContent({ children, className }: PopoverContentProps) {
     <RDXPopover.Portal>
       <RDXPopover.Content
         className={cn(
-          "rounded-2xl p-4 z-[99999] bg-white space-y-2 shadow-[0px_11px_20px_0px_rgba(0,0,0,0.10)]",
+          "rounded-2xl p-4 z-[100] bg-white space-y-2 shadow-[0px_11px_20px_0px_rgba(0,0,0,0.10)]",
           "data-[side=bottom]:animate-slide-up-and-fade",
           "data-[side=top]:animate-slide-up-and-fade",
           className
